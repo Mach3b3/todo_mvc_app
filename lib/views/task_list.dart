@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:fluttertoast/fluttertoast.dart'; // Import fluttertoast
 import '../models/task.dart';
 
 class TaskListWidget extends StatelessWidget {
@@ -87,18 +86,7 @@ class TaskListWidget extends StatelessWidget {
                         ),
                       );
                       if (confirm == true) {
-                        String deletedTask = tasks[index].title;
                         onDelete(index);
-
-                        // Show Flutter toast message
-                        Fluttertoast.showToast(
-                          msg: "Task '$deletedTask' deleted",
-                          toastLength: Toast.LENGTH_SHORT,
-                          gravity: ToastGravity.BOTTOM,
-                          backgroundColor: Colors.black54,
-                          textColor: Colors.white,
-                          fontSize: 16.0,
-                        );
                       }
                     },
                     backgroundColor: Colors.red,

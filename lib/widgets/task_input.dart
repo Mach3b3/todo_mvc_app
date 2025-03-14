@@ -35,7 +35,7 @@ class TaskInputWidget extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           SizedBox(
-            height: 56, // Match the height of the TextField
+            height: 56,
             child: ElevatedButton(
               onPressed: onAddPressed,
               style: ElevatedButton.styleFrom(
@@ -49,7 +49,7 @@ class TaskInputWidget extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           SizedBox(
-            height: 56, // Match the height of the TextField
+            height: 56,
             child: ElevatedButton.icon(
               onPressed: onHistoryPressed,
               icon: const Icon(Icons.history),
