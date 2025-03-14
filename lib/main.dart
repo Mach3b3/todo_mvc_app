@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_mvc_app/views/todo_list_screen.dart';
 import 'widgets/header.dart';
 import 'controllers/task_controller.dart';
 
 void main() {
-  runApp(const TodoApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => TaskController(),
+      child: const TodoApp(),
+    ),
+  );
 }
 
 class TodoApp extends StatefulWidget {
@@ -17,13 +23,11 @@ class TodoApp extends StatefulWidget {
 
 class _TodoAppState extends State<TodoApp> {
   bool _isDarkMode = false;
-  final TaskController _taskController = TaskController();
 
   @override
   void initState() {
     super.initState();
     _loadThemePreference();
-    _taskController.loadTasks();
   }
 
   Future<void> _loadThemePreference() async {
@@ -92,7 +96,7 @@ class _TodoAppState extends State<TodoApp> {
                   ],
                 ),
               ),
-              Expanded(child: TodoListScreen(taskController: _taskController)),
+              Expanded(child: TodoListScreen()),
             ],
           ),
         ),
